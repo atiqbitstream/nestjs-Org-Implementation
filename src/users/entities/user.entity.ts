@@ -21,6 +21,7 @@ export class User {
   password:string;
 
   @Column({ nullable: true })
+  
   organizationId?: string;
 
   
