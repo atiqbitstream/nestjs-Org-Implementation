@@ -1,4 +1,9 @@
 import { Module } from '@nestjs/common';
+import { FakerService } from './faker.service';
+import { FakerController } from './faker.controller';
 
-@Module({})
+@Module({
+  controllers: [FakerController],
+  providers: [FakerService],
+})
 export class FakerModule {}

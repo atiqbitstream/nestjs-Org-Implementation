@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { FakerModule } from './faker/faker.module';
+import { FakerModule } from './faker/faker.module';
 
 @Module({
   imports: [UsersModule, AuthModule, FakerModule],
