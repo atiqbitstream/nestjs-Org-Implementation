@@ -8,27 +8,8 @@ export class FakerController {
   constructor(private readonly fakerService: FakerService) {}
 
   @Post()
-  create(@Body() createFakerDto: CreateFakerDto) {
-    return this.fakerService.create(createFakerDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.fakerService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.fakerService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFakerDto: UpdateFakerDto) {
-    return this.fakerService.update(+id, updateFakerDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.fakerService.remove(+id);
+  async populateDb()
+  {
+    return await this.fakerService.setUpForDemo();
   }
 }

@@ -1,26 +1,57 @@
 import { Injectable } from '@nestjs/common';
-import { CreateFakerDto } from './dto/create-faker.dto';
-import { UpdateFakerDto } from './dto/update-faker.dto';
+import { ERole } from 'src/users/enums/roles.enum';
+import { UsersService } from 'src/users/users.service';
+
 
 @Injectable()
 export class FakerService {
-  create(createFakerDto: CreateFakerDto) {
-    return 'This action adds a new faker';
-  }
 
-  findAll() {
-    return `This action returns all faker`;
-  }
+    constructor(private usersService:UsersService){}
 
-  findOne(id: number) {
-    return `This action returns a #${id} faker`;
-  }
+     
+    async setUpForDemo()
+    {
+  
+ 
+    const FAdmin = await this.usersService.create({
+        firstName : 'Waseem',
+        lastName : 'khan',
+        password : '123',
+        email  : 'wazi@gmail.com',
+        role: ERole.ADMIN,
+        organizationId: '123'
+    });
 
-  update(id: number, updateFakerDto: UpdateFakerDto) {
-    return `This action updates a #${id} faker`;
-  }
+  
 
-  remove(id: number) {
-    return `This action removes a #${id} faker`;
-  }
+    const FUser = await this.usersService.create({
+        firstName : 'Atiq',
+        lastName : 'khan',
+        password : '123',
+        email : 'atiq@gmail.com',
+         role: ERole.USER,
+        organizationId: '123'
+    })
+
+
+    const FRider = await this.usersService.create({
+      firstName : 'User',
+      lastName : 'khan',
+      password : '123',
+      email : 'user@gmail.com',
+      role: ERole.RIDER,
+      organizationId: '123'
+    })
+
+ 
+
+    return {
+        FAdmin,
+        FUser,
+        FRider
+    }
+
+
+
+    }
 }

@@ -1,9 +1,13 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { ERole } from "../enums/roles.enum";
 
 
 @Entity()
 export class User {
+
+  @PrimaryGeneratedColumn()
+  id:number;
+     
   @Column({ type: 'varchar', length: 150 })
   firstName: string;
 
@@ -15,13 +19,12 @@ export class User {
 
   @Column({ type: 'enum', enum: ERole })
   role: ERole;
-
-  
+ 
   @Column()
   password:string;
 
   @Column({ nullable: true })
-  
+
   organizationId?: string;
 
   

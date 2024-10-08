@@ -24,18 +24,4 @@ export class UsersService {
         return this.usersRepository.save(user);
       }
 
-      async update(userId:number, dto:UpdateUserDto)
-      {
-        const user = await this.usersRepository.findOne({where:{id:userId}})
-
-        console.log("Hi! i am update emthod in user service : ",user);
-
-        const {roles,permissions} = dto;
-
-        user.roles=roles ?? user.roles;
-        user.permissions=permissions ?? user.permissions;
-
-        return await this.usersRepository.save(user);
-
-      }
 }
