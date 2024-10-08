@@ -1,4 +1,5 @@
 import { Column, Entity } from "typeorm";
+import { ERole } from "../enums/roles.enum";
 
 
 @Entity()
