@@ -7,6 +7,9 @@ export class User {
 
   @PrimaryGeneratedColumn()
   id:number;
+
+  @Column({ type: 'varchar', length: 150 })
+  username: string;
      
   @Column({ type: 'varchar', length: 150 })
   firstName: string;

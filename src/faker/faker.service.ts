@@ -14,6 +14,7 @@ export class FakerService {
   
  
     const FAdmin = await this.usersService.create({
+        username : 'wazi',
         firstName : 'Waseem',
         lastName : 'khan',
         password : '123',
@@ -25,6 +26,7 @@ export class FakerService {
   
 
     const FUser = await this.usersService.create({
+        username : 'atiqo',
         firstName : 'Atiq',
         lastName : 'khan',
         password : '123',
@@ -35,6 +37,7 @@ export class FakerService {
 
 
     const FRider = await this.usersService.create({
+      username : 'user01',
       firstName : 'User',
       lastName : 'khan',
       password : '123',

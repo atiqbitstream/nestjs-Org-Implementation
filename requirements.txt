@@ -1,0 +1,8 @@
+@nestjs/passport
+passport
+passport-local
+@types/passport-local
+@nestjs/jwt
+passport-jwt
+@types/passport-jwt
+@nestjs/config

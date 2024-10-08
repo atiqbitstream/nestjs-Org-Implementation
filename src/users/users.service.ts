@@ -14,6 +14,11 @@ export class UsersService {
     private usersRepository: Repository<User>,
   ) {}
   
+  async findOne(username:string):Promise<User | undefined>
+  {
+    return this.usersRepository.findOne({where : {username}})
+  }
+
   async create(userDto:CreateUserDto):Promise<User>
       {
         const salt = await bcrypt.genSalt();
